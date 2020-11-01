@@ -17,10 +17,10 @@ int toknowKeys(int n){
 }
 //判断是否为降序数
 int isDescending(int a[],int keys){
-    int flag=0;
+    int flag=1;
     for ( int i = keys-1; i>=1; i--)
     {
-        if (a[i]<a[i-1])
+        if (a[i]<=a[i-1])
         {
             flag=1;
         }
