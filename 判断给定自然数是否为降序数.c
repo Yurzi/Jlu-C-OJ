@@ -17,19 +17,37 @@ int toknowKeys(int n){
 }
 //判断是否为降序数
 int isDescending(int a[],int keys){
-    int flag=1;
-    for ( int i = keys-1; i>=1; i--)
+    int flag=0;
+    for ( int i = 0; i<keys-1; i++)
     {
-        if (a[i]<=a[i-1])
+        //printf("%d ",a[i]);
+        if (a[i]>=a[i+1])
         {
+            //printf("哈");
             flag=1;
-        }
-        else
+        }else
         {
-            flag=0;
+        flag=0;
+        break;
         }
     }
+    //printf("%d",a[keys-1]);
+    /*if (a[keys-2]>=a[keys-1])
+    {
+        flag=1;
+    }*/
+    
     return flag;
+}
+//计算乘方
+int intpow(int x,int y){
+    int sum=1;
+    for (int i = 0; i < y; i++)
+    {
+        sum=sum*x;
+    }
+    return sum;
+    
 }
 
 
@@ -45,10 +63,10 @@ int main(int argc, char const *argv[])
     //生成一个数组
     int arr[keys];
     //将自然数的每一位写入数组
-    for (int i = 0; i < keys; i++)
+    for (int i = 0; i <keys; i++)
     {
-        int k=pow(10,keys-i-1);
-        if (i==(keys-1))
+        int k=intpow(10,keys-i-1);
+        if (i==keys-1)
         {
             arr[i]=n;
         }else
@@ -56,7 +74,18 @@ int main(int argc, char const *argv[])
             arr[i]=n/k;
             n=n%k;
         }
+         
+        //printf("%d %d ",k,i);
+        //printf("%d\n",n);
     }
+    
+    //输出数组
+    /*for (int i = 0; i<keys; i++)
+    {
+        printf("%d ",arr[i]);
+    }*/
+    //printf("\n");
+    
     //判断并输出
     int flag=isDescending(arr,keys);
     if (flag)
