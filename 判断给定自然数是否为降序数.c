@@ -1,12 +1,22 @@
 #include<stdio.h>
 #include<math.h>
+//计算乘方
+int intpow(int x,int y){
+    int sum=1;
+    for (int i = 0; i < y; i++)
+    {
+        sum=sum*x;
+    }
+    return sum;
+    
+}
 //判断自然数的位数
 int toknowKeys(int n){
     int flag=1;
     int i=0;
     while (flag)
     {
-        if (n/pow(10,i)<10)
+        if (n/intpow(10,i)<10)
         {
             return i+1;
         }else
@@ -38,16 +48,6 @@ int isDescending(int a[],int keys){
     }*/
     
     return flag;
-}
-//计算乘方
-int intpow(int x,int y){
-    int sum=1;
-    for (int i = 0; i < y; i++)
-    {
-        sum=sum*x;
-    }
-    return sum;
-    
 }
 
 
