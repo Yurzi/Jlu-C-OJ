@@ -24,7 +24,7 @@ long long Factorial(long n){
 
 int main(int argc, char const *argv[])
 {
-    double eps=1e-6;
+    double eps=0.00001;
     double x=0;//x的值
     double result=0;
     //输入
@@ -34,11 +34,23 @@ int main(int argc, char const *argv[])
     double temp=0;
     while (1)
     {
-        temp=getUnit(x,i);
-        if (temp<eps)
+        temp=getUnit(x,i);    
+        if (temp>0)
+        {  
+            if (temp<eps)
         {
             break;
         }
+        
+        }else if (temp<0)
+        {
+            if (-temp<-eps)
+        {
+            break;
+        }
+            temp=-temp;
+        }
+        
         result=result+temp;
         i++;
         
