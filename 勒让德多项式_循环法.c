@@ -1,26 +1,26 @@
 #include<stdio.h>
 int main(int argc, char const *argv[])
 {
-    float x=0,p0=1,p1=0,pn=0;
+    double x=0,p0=1,p1=0,pn=0;
     int n=0;
     //输入
-    scanf("%f %d",&x,&n);
+    scanf("%lf %d",&x,&n);
     p1=x;
 
     if(n==0){
-        printf("%.2f",1.00);
+        printf("%.2lf",1.00);
     }else if (n==1)
     {
-        printf("%.2f",x);
+        printf("%.2lf",x);
     }else if (n>1)
     {
         for (int i = 2; i <=n; i++)
         {
-            pn=((float)(2*i-1)/i)*x*p1-((float)(i-1)/i)*p0;
+            pn=((double)(2*i-1)/i)*x*p1-((double)(i-1)/i)*p0;
             p0=p1;
             p1=pn;
         }     
-        printf("%.2f",pn);    
+        printf("%.2lf",pn);    
     }
 
     return 0;

@@ -1,6 +1,6 @@
 #include<stdio.h>
 //求出勒德多多项式
-float toSolvethe(float x,int n){
+double toSolvethe(double x,int n){
     if (n==0)
     {
         return 1.00;
@@ -9,24 +9,24 @@ float toSolvethe(float x,int n){
         return x;
     }else if (n>1)
     {
-        return (((float)(2*n-1)/n)*x*toSolvethe(x,(n-1))-((float)(n-1)/n)*toSolvethe(x,n-2));
+        return (((double)(2*n-1)/n)*x*toSolvethe(x,(n-1))-((double)(n-1)/n)*toSolvethe(x,n-2));
     }  
 }
 
 int main(int argc, char const *argv[])
 {
-    float x,pn;
+    double x,pn;
     int n;
-    scanf("%f %d",&x,&n);
+    scanf("%lf %d",&x,&n);
     if(n==0){
-        printf("%.2f",1.00);
+        printf("%.2lf",1.00);
     }else if (n==1)
     {
-        printf("%.2f",x);
+        printf("%.2lf",x);
     }else if (n>1)
     {
         pn=toSolvethe(x,n);
-        printf("%.2f",pn);   
+        printf("%.2lf",pn);   
     }
     
     return 0;
