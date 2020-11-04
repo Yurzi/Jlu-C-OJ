@@ -1,9 +1,9 @@
 #include<stdio.h>
 //定义函数以计算斐波纳契序列
-int toSolve(int n){
-    int a0=0;
-    int a1=1;
-    int a2=0;
+long long toSolve(int n){
+    long long a0=0;
+    long long a1=1;
+    long long a2=0;
     if (n==0)
     {
         return 1; 
@@ -12,7 +12,7 @@ int toSolve(int n){
         return 1;
     }else if (n>=2)
     {
-        for (int i = 1; i <=n; i++)
+        for (long i = 1; i <=n; i++)
         {
             a2=a0+a1;
             a0=a1;
@@ -24,12 +24,12 @@ int toSolve(int n){
 }
 int main(int argc, char const *argv[])
 {
-    int n=0;
+    long n=0;
 
     //输入
-    scanf("%d",&n);
+    scanf("%ld",&n);
 
     //输出
-    printf("%d",toSolve(n));
+    printf("%lld",toSolve(n));
     return 0;
 }
