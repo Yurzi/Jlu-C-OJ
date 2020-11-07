@@ -1,3 +1,4 @@
+//公式累乘
 #include<stdio.h>
 //计算
 double getPI(int n){

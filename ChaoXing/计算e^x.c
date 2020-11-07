@@ -1,3 +1,4 @@
+//计算e^x
 #include <stdio.h>
 #include<math.h>
 //计算每一项的值

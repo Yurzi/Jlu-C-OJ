@@ -1,3 +1,4 @@
+//数字金字塔
 #include<stdio.h>
 int main(int argc, char const *argv[])
 {
