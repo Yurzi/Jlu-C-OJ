@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
     char temps[1024]={0};
     int flag=1;
     int top=0;
-    //循环读入
+    //循环读入获得括号字符串
     while (1)
     {
         t = getchar();
@@ -37,19 +37,23 @@ int main(int argc, char const *argv[])
         }
     }
 
+    //模拟栈，确保对数组的最上层top位进行操作，top变量类似指针的作用
         int k=0;
         while(k<i){
             if (kuohao[k]=='('||kuohao[k]=='['||kuohao[k]=='{'){
+                //若为左括号则入“栈”
                 temps[top]=kuohao[k];
                 top++;
             }else{
                 if(kuohao[k]==(temps[top-1]+1)||kuohao[k]==(temps[top-1]+2)){
+                    //若右括号匹配到左括号则出栈左括号
                     temps[top]=0;
-                    top--;
+                    top--;//将指针右移
                 }
             }
             k++;
         }
+        //指针归零则证明栈空
         if(top==0){
             printf("YES");
         }else{
