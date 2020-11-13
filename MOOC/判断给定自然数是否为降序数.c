@@ -27,7 +27,7 @@ int toknowKeys(int n){
 }
 //判断是否为降序数
 int isDescending(int a[],int keys){
-    int flag=0;
+    int flag=1;
     for ( int i = 0; i<keys-1; i++)
     {
         //printf("%d ",a[i]);
