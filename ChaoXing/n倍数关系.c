@@ -67,11 +67,14 @@ int main(int argc, char const *argv[])
     while(t!=-1){
         i=0;
         //获得一行输入
-        while(t!=0&&t!=-1){
+        while(1){
             scanf("%d",&a[i]);
+            t=a[i];
             i++;
+            if(t==0||t==-1){break;}
             getchar();
         }
+        if(t==-1){break;}
         //准备 排序数组
         QuickSort(a,0,i-1);
         //获得数对数
@@ -81,7 +84,8 @@ int main(int argc, char const *argv[])
 
     //输出
     for(int k=0;k<line;k++){
-        printf("%d\n",flag[k]);
+        printf("%d",flag[k]);
+        if(k<line-1){printf("\n");}
     }
     return 0;
 }
