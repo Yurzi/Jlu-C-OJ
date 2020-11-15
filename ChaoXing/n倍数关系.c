@@ -39,13 +39,13 @@ int getRightNum(int a[],int length,int n){
     //从第一个数开始
     int res=0;
     for(int i=0;i<length;i++){
-        for(int j=i+1;j<length;j++){
+        for(int j=0;j<length;j++){
             if(n>=1){
-                if((a[i]*n)==a[j]){
+                if((a[i]*n)==a[j]&&i!=j){
                     res++;
                 }
             }else if(n<1){
-                if((a[j]*n)==a[i]){
+                if((a[j]*n)==a[i]&&i!=j){
                     res++;
                 }
             }
@@ -59,8 +59,8 @@ int main(int argc, char const *argv[])
     int n;  //记录倍数
     int line=0;    //记录行数
     int i=0;    //用于遍历a数组
-    int flag[100]={0};  //用于存放每行的结果
-    int a[100]={0}; //用于存放每行
+    int flag[110]={0};  //用于存放每行的结果
+    int a[110]={0}; //用于存放每行
     //输入倍数
     scanf("%d",&n);
     //输入接下的行数
