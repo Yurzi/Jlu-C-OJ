@@ -1,8 +1,7 @@
 #include<stdio.h>
 #define N 100
-//向前移动一位数组
 
-//函数标记重复元素
+//删除重复元素
 int toDelRepition(int* arr, int n){
     int total=n;
     int j=1;int flag=1;
