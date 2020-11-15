@@ -21,27 +21,41 @@ int toDelRepition(int* arr, int n){
     }
     return total;
 }
-//冒泡排序
-void BubbleSort(int arr[],int n){
-    int flag=1;//标识是否进行交换
-    int t=0;
-    while(flag){
-        flag=0;//默认不存在交换 并扫描一次
-        //扫描
-        for(int i=0;i<n-1;i++){
-            if(arr[i]>arr[i+1])//如果前项大于后项怎后移
-            {   
-                //交换
-                t=arr[i+1];
-                arr[i+1]=arr[i];
-                arr[i]=t;
-                //标记存在交换
-                flag=1;
-            }
+//快速排序
+void QuickSort(int *arr, int low, int high)
+{
+    int i = low;
+    int j = high;
+    int key = arr[low];
+    if (low >= high)  //如果low >= high说明排序结束了
+    {
+        return ;
+    }
+    while (low < high)  //该while循环结束一次表示比较了一轮
+    {
+        while (low < high && key <= arr[high])
+        {
+            --high;  //向前寻找
+        }
+        if (key > arr[high])
+        {
+            arr[low] = arr[high];  //直接赋值, 不用交换
+            ++low;
+        }
+        while (low < high && key >= arr[low])
+        {
+            ++low;  //向后寻找
+        }
+        if (key < arr[low])
+        {
+            arr[high] = arr[low];  //直接赋值, 不用交换
+            --high;
         }
     }
+    arr[low] = key;  //查找完一轮后key值归位, 不用比较一次就互换一次。此时key值将序列分成左右两部分
+    QuickSort(arr, i, low-1);  //用同样的方式对分出来的左边的部分进行同上的做法
+    QuickSort(arr, low+1, j);  //用同样的方式对分出来的右边的部分进行同上的做法
 }
-
 int main(int argc, char const *argv[])
 {
     int arr[N]={0};
@@ -63,7 +77,7 @@ int main(int argc, char const *argv[])
         point++;
     }
     
-    BubbleSort(arr,N);
+    QuickSort(arr,0,N-1);
     toDelRepition(arr,N);
 
 
