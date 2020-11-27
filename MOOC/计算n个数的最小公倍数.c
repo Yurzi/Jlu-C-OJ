@@ -33,7 +33,7 @@ int main(int argc, char const *argv[])
     getchar();
     //求最大公约数
     /*gcd1=arr[0];
-    for (int i = 1; i <=key; i++)
+    for (int i = 0; i <key; i++)
     {
         gcd1=gcd(gcd1,arr[i]);
     }*/
