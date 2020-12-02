@@ -55,8 +55,8 @@ int getRightNum(int a[],int length,int n){
 }
 int main(int argc, char const *argv[])
 {
-    int t;  //暂存数字
-    int n;  //记录倍数
+    int t=0;  //暂存数字
+    int n=0;  //记录倍数
     int line=0;    //记录行数
     int i=0;    //用于遍历a数组
     int flag[110]={0};  //用于存放每行的结果
