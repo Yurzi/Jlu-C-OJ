@@ -10,6 +10,7 @@ int gcd(int x,int y){
         return gcd(y,x%y);
     }
 }
+
 //求最小公倍数
 int lcm(int x,int y){
     int gcd1=0;
