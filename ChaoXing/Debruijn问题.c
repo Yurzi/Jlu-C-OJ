@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
+#define K 16
+#define N 4
 
 //链表节点
 typedef struct ListNode
@@ -16,48 +18,60 @@ void displayList(List* head);
 
 List* HEAD=NULL;
 int n=0;
+int k=0;
 
 //判断是否合法
 int isRigth(List* head){
     List* p=head;
-    int a[n];
-    int b[n];
-    int flag=0;
-    while (p->next!=HEAD)
+    char arr[K][N];
+	int flag=1;
+	//判断中间两两是否符合
+	int q=0;
+	//取遍所有可能
+    while (1)
     {
         List* t=p;
         for (int i = 0; i < n; i++)
         {
-            a[0]=t->var;
-            b[0]=t->next->var;
-            if (a[0]!=b[0])
-            {
-                flag=1;
-                break;
-            }
-        }
-        if(!flag){
-            break;
-        }
+            arr[q][i]=(t->var)+48;
+			t=t->next;
+		}
+		q++;
         p=p->next;
+		if(p==HEAD)break;
     }
+	//判断是否有重复
+	for (int i = 0; i < k; i++){
+		for (int j = i+1; j < k; j++){
+			int sum=0;
+			for (int k = 0; k < n; k++)
+			{
+				sum=sum+abs(arr[i][k]-arr[j][k]);
+			}
+			if(sum==0){
+				flag=0;
+				break;
+			}
+		}
+		if(!flag)break;
+	}
     return flag;
 }
-
 void toslove(List* p,int var){
     p->var=var;
     //递归出口
     if(p->next==HEAD){
         if (isRigth(HEAD))
         {
-            displayList(HEAD);  
+            displayList(HEAD);
+			exit(0);  
         }
         return;
     }
 
-    toslove(p->next,var);
+    toslove(p->next,0);
 
-    toslove(p->next,!var);
+    toslove(p->next,1);
     return;
 }
 
@@ -65,11 +79,12 @@ void toslove(List* p,int var){
 //主函数 程序入口
 int main(int argc, char const *argv[])
 {
-    int n=0;
+
     scanf("%d",&n); //输入n
-    
+	k=(int)powf(2,n);
+	
     //创建链表
-    HEAD=initList((int)powf(2,n));
+    HEAD=initList(k);
 
     //处理
     toslove(HEAD,0);
@@ -111,5 +126,6 @@ void displayList(List* head){
         printf("%d ",p->var);
         p=p->next;
     }
+	printf("%d",p->var);
     printf("\n");
 }
