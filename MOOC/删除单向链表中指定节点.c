@@ -55,6 +55,8 @@ List* delKeyNode(List* head,int key){
             List* t=p->next;
             p->next=t->next;
             free(t);
+        }else{
+            p=p->next;
         }
     }
     return head; 
