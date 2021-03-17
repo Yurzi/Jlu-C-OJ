@@ -77,10 +77,10 @@ int main(int argc, char const *argv[])
     //结束后清空符号栈
     while (!(singals.empty()))
     {
-        if(singals.top()==1){printf("+");singals.pop();}
-        if(singals.top()==2){printf("-");singals.pop();}
-        if(singals.top()==11){printf("*");singals.pop();}
-        if(singals.top()==12){printf("/");singals.pop();}
+        if(singals.top()==11){printf("+");singals.pop();}
+        if(singals.top()==12){printf("-");singals.pop();}
+        if(singals.top()==21){printf("*");singals.pop();}
+        if(singals.top()==22){printf("/");singals.pop();}
     }
     
     
