@@ -19,6 +19,12 @@
 int x=0;
 int y=0;
 
+//设置窗口颜色和背景 输入颜色值 前景 背景
+void SetColor(UINT uFore,UINT uBack) {
+    HANDLE handle=GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(handle,uFore+uBack*0x10);
+}
+
 //细胞结构体
 typedef struct cell
 {
@@ -199,9 +205,9 @@ void printMap(Cell* head){
         {
             if (now->isLive)
             {
-                printf("@ ");
+                printf("■");
             }else{
-                printf(". ");
+                printf("□");
             }
             now=now->right;
         }
