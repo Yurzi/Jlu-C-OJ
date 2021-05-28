@@ -39,15 +39,13 @@ int main(int argc, char const *argv[])
 
     char ctemp=0;
     for(int i=0;i<n;++i){
-        scanf("%c",&ctemp);
-        getchar();
+        scanf(" %c",&ctemp);
         list.push_back(pair<char,int>(ctemp,0));
     }
     int itemp=0;
     for (int i = 0; i < n; ++i)
     {
-        scanf("%d",&itemp);
-        getchar();
+        scanf(" %d",&itemp);
         list[i].second=itemp;
     }
     layer* root=NULL;
