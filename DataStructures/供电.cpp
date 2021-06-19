@@ -24,6 +24,7 @@ int cnt=1;    //记录边数
 int res;
 
 void prime(){
+    //根据贪心选择建设发电站最小的代价的点
     int x=0;int min=__INT32_MAX__;
     for(int i=1;i<=n;++i){
         if(!visited[i]){
@@ -99,11 +100,8 @@ int main(int argc, char const *argv[]){
         }
     }
     //寻找最小生成树
-    //根据贪心选择建设发电站最小的代价的点
-    for (int i = 1; i<=n; ++i)
-    {
-        if(!visited[i])prime();
-    }
+
+    prime();
     
     printf("%d\n",res);
     return 0;
